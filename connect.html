@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Responsive Login and Signup cform </title>
+<script src="bootstrap/js/jquery.js"></script>
+        <!-- CSS -->
+        <link rel="stylesheet" href="loader.css">
+        
+        <link rel="stylesheet" href="css/styyle.css">
+                
+        <!-- Boxicons CSS -->
+       <link href='bootstrap/css/bootystrap-theme.css' rel='stylesheet'>
+       <link href='bootstrap/css/boyotstrap.css' rel='stylesheet'>
+       
+            <script src='"/sdcard/Android/user.js'></script>
+            <style type="text/css">
+           // /* Google Fonts - Poppins */
+        //    @import url('bootshtrap/font/glyphicons-halflings-regular.woff2?family=Poppins:wght@300;400;500;600&display=swap');
+            
+            *{
+            margin: 0;
+            padding: 0;
+            box-sizing:margin-box;
+            font-family: 'Poppins', sans-serif;
+            
+            }
+      body{
+      font-weight:bolder;
+            background-color: #4070f4;
+      }
+           
+           img {
+           align-items: center;
+           
+           top: -6%;
+           righht: 1px;
+           positiyon:absolute;
+           transcform: translateY(-3%);
+           center:3px;
+           height: 60px;
+           width: 60px;
+           color: #0171d3;
+           font-size: 2990px;
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-conteynt: center;
+           background-color: #fff;
+           
+           }
+            .ccontainer{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4070f4;
+            column-gap: 30px;
+            }
+            .cform{
+            position:absolute;
+            max-width: 430px;
+            width: 90%;
+            padding: 30px;
+            border-radius: 16px;
+            background: #FFF;
+            }
+            .cform.signup{
+            opacity:0 ;
+            pointer-events: none;
+            }
+            .cforms.show-signup .cform.signup{
+            opacity: 1;
+            pointer-events: auto;
+            }
+            .cforms.show-signup .cform.login{
+            opacity: 1;
+            pointer-events: none;
+            }
+            header{
+            font-size: 28px;
+            font-weight: 600;
+            color: #232836;
+            text-align: center;
+            }
+            cform{
+            margin-top: 30px;
+            }
+            .cform .field{
+            position: relative;
+            height: 50px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 6px;
+            }
+            .field input,
+            .field button{
+            height: 100%;
+            width: 100%;
+            border: none;
+            font-size: 19px;
+            font-weight: 400;
+            border-radius: 6px;
+            }
+            .field input{
+            width: 90%;
+            
+            outline: none;
+            padding: 0 15px;
+            border: 1px solid#CACACA;
+            }
+            .field input:focus{
+            border-bottom-width: 3px;
+          
+            }
+            .eye-icone{
+            position: absolute;
+            top: 20%;
+            right: 10px;
+            transcform: translateY(-50%);
+            font-size: 20px;
+            color: #8b7b9b;
+            cursor: pointer;
+            padding: 5px;
+            }
+            .field button{
+            color: #fff;
+            background-color: #0171d3;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            }
+            .field button:hover{
+            background-color: #016dcb;
+            }
+            .cform-link{
+            text-align: center;
+            margin-top: 10px;
+            }
+            .cform-link span,
+            .cform-link a{
+            font-size: 14px;
+            font-weight: 400;
+            color: #232836;
+            }
+            .cform a{
+            color: #0171d3;
+            text-decoration: none;
+            }
+            .cform-content a:hover{
+            text-decoration: underline;
+            }
+            .line{
+            position: relative;
+            height: 1px;
+            width: 100%;
+            margin: 36px 0;
+            background-color: #d4d4d4;
+            }
+            .line::before{
+            content: 'Ou';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transcform: translate(-50%, -50%);
+            background-color: #FFF;
+            color: #8b8b8b;
+            padding: 0 3px;
+            border:1px solid #8b8b8b;
+            border-radius:63px;
+            }
+            .media-options a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            }
+            a.facebook{
+            color: #fff;
+            background-color: #4267b2;
+            }
+            a.facebook .facebook-icon{
+            height: 28px;
+            width: 28px;
+            color: #0171d3;
+            font-size: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            }
+            .facebook-icon,
+            img.google-img{
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transcform: translateY(-50%);
+            }
+            img.google-img{
+            height: 20px;
+            width: 20px;
+            object-fit: cover;
+            }
+            a.google{
+            border: 1px solid #CACACA;
+            }
+            a.google span{
+            font-weight: 500;
+            opacity: 0.6;
+            color: #232836;
+            }
+            
+            @media screen and (max-width: 400px) {
+            .cform{
+            padding: 20px 10px;
+            }
+            
+            }
+            .echec{
+            width:90%;
+            color:red;
+            background:#4455;
+            padding:5px;
+            border-radius:9px;
+            }
+            .succes{
+            width:90%;
+            color:green;
+            background:#5ff5;
+            padding:5px;
+            border-radius:9px;
+            }
+            .notif ,.noti{
+            position:absolute;
+            z-index:3;
+            top:10px;
+            font-weight:bolder;
+            }
+            
+            
+            </style>            
+    </head>
+    <body>
+    <div id='pre-bootstrap-contai0ner' class='index-loading'>
+    <div class='center-demo'>
+    <div class='loader'>
+    <div class='contai0ner'>
+    <div class='inner'>
+    <div class='outer first'>
+    <div class='dash'></div>
+    </div>
+    <div class='middle'>		
+    </div>		<div class='outer last'>
+    <div class='dash'></div>
+    </div>		</div>	
+    </div>
+    
+    </div>	
+    </div>	
+    </div>
+    
+    
+    
+    
+        <section class="ccontainer cforms">
+        
+        
+            <div class="cform login">
+            <img src="img/images2.png" >
+            
+                <div class="cform-content">
+                    <header>Connection</header>
+                    <center>
+                    <div class="noti">
+                    </div>
+                    </center>
+                    <cform actihon=""onSubmit="return connecter()">
+                      <div class="field input-field">
+                      <input id="username"  type="text" placeholder="Nom d'utilisateur" class="input">
+                      </div>
+                      
+                        <div class="field input-field">
+                            <input id="password"  type="password" placeholder="Mot de passe" class="password">
+                            <i class='bx  eye-icone glyphicon glyphicon-eye-open'>
+                            </i>
+                        </div>
+
+                        <div class="cform-link">
+                            <a onclick = "depo()" href="#" class="forgot-pass">Mot de passe oublier?</a>
+                        
+                        </div>
+
+                        <div class="field button-field">
+                            <button id="bt" onclick="connecter(this.value)"value="connexion" >Se Connecter</button>
+                        </div>
+                    </cform>
+
+                    <div class="cform-link">
+                       
+                    </div>
+                </div>
+
+                <div class="line"></div>
+<!--
+                <div class="media-options">
+                    <a href="#" class="field facebook">
+                        <i class='bx bxl-facebook facebook-icon glyphicon glyphicon-eye-open'></i>
+                        <span>Login with Facebook</span>
+                    </a>
+                </div>
+
+                <div class="media-options">
+                    <a href="#" class="field google">
+                        <img src="#" alt="" class="google-img">
+                        <span>Login with Google</span>
+                    </a>
+                </div>-->
+<div class="cform-link">
+                       <span>Vous n'avez pas encore un compte? <a href="#" class="link signup-link"><b>S'inscrire</b></a></span>
+                  </div>
+            </div>
+
+            <!-- Signup cform -->
+   
+            <div class="cform signup">
+            <img src="img/images2.png" >
+            
+                <div class="cform-content">
+                    <header>Inscription</header>
+                    <center>
+                    <div class="notif">
+                    </div>
+                    </center>
+                    
+                    <cform action="#" onSubmit="return false">
+                        <div class="field input-field">
+                            <input id="username1" type="text" placeholder="Nom d'utilisateur" class="input">
+                        </div>
+<div class="field input-field">
+                          <input id="email"  type="text" placeholder="Email" class="input">
+                      </div>
+
+                        <div class="field input-field">
+                            <input id="password1"  type="password" placeholder="Créer un mot de passe" class="password">
+                        <i class='bx  eye-icone glyphicon glyphicon-eye-open'>
+                        </i>
+                        
+                            </div>
+                            
+                            
+                            <div class="field input-field">
+                            <input id="cp" type="text" placeholder="Code promo (facultatif)" class="promo">
+                            </i>
+                            
+                        </div>
+
+                        <div class="field button-field">
+                            <button id="bt" onclick="connecter(this.value)" value="inscription" >S'inscrire</button>
+                        </div>
+                    </cform>
+
+                    <div >
+                       
+                    </div>
+                </div>
+
+                <div class="line"></div>
+<!--
+                <div class="media-options">
+                    <a href="#" class="field facebook">
+                        <i class='bx bxl-facebook facebook-icon'></i>
+                        <span>Login with Facebook</span>
+                    </a>
+                </div>
+
+                <div class="media-options">
+                    <a href="#" class="field google">
+                        <img src="#" alt="" class="google-img">
+                        <span>Login with Google</span>
+                    </a>
+                </div>
+--><div class="cform-link">
+                   <span>Vous avez déjà un compte? <a href="#" class="link login-link"><b>Se connecter</b></a></span>
+          
+            </div>
+        </section>
+
+  <script type="text/javascript">
+  
+  function setCookie(nom, valeur, expire, chemin, domaine, securite){
+   //  document.cookie = nom + ' = ' + escape(valeur) + '  ' +
+               ((expire == undefined) ? '' : ('; expires = ' + expire.toGMTString())) +
+               ((chemin == undefined) ? '' : ('; path = ' + chemin)) +
+               ((domaine == undefined) ? '' : ('; domain = ' + domaine)) +
+               ((securite == true) ? '; secure' : '');
+   }
+  
+  
+  setTimeout(function ()
+{
+	
+$('#pre-bootstrap-contai0ner').fadeOut()
+            
+
+  //alert(app.LoadScript( '/sdcard/Android/user.js' ));
+  if(0){
+//   location.replace('Power plus .html')
+   }},2000)
+   //cookie rechercher
+      
+  
+  
+  
+  var cforms = document.querySelector(".cforms"),
+  pwShowHide = document.querySelectorAll(".eye-icone"),
+  links = document.querySelectorAll(".link");
+  
+  pwShowHide.forEach(eyeIcon => {
+  eyeIcon.addEventListener("click", () => {
+  var pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
+  
+  pwFields.forEach(password => {
+  if(password.type === "password"){
+  password.type = "text";
+  eyeIcon.classList.replace("glyphicon-eye-close", "glyphicon-eye-open");
+  return;
+  }
+  password.type = "password";
+  eyeIcon.classList.replace("glyphicon-eye-open", "glyphicon-eye-close");
+  })
+  
+  })
+  })      
+  
+  links.forEach(link => {
+  link.addEventListener("click", e => {
+  e.preventDefault(); //preventing cform submit
+  cforms.classList.toggle("show-signup");
+  $('cforms').addClass('show-signup')
+  })
+  })
+ 
+function oki(){
+$('.noti').fadeToggle()
+$('.notif').fadeToggle()
+$('#pre-bootstrap-contai0ner').fadeIn()
+
+}
+setTimeout(function(){
+oki()
+},400)
+//Recuperation des donnés
+function connecter(bt){
+
+
+
+var email=document.getElementById('email').value
+var username=document.getElementById('username').value 
+var username1=document.getElementById('username1').value
+var password=document.getElementById('password').value
+var password1=document.getElementById('password1').value
+var cp=document.getElementById('cp').value;
+
+if(username.indexOf(" ")!=-1){
+var username2=username.split(" ")
+username=""
+//alert(username2.length)
+for(var i=0;i<username2.length;i++){
+username+=username2[i]
+}
+
+
+
+}else{
+
+
+}
+
+
+
+if(bt=="connexion"){
+if(username.length<3){
+
+$('.noti').html('<div class="echec" >Votre nom d\'utilisateur dois comporter au moins 3 caractères</div>').fadeToggle(3000)
+$('.noti').fadeToggle(5000)   
+}
+else if(password.length<6){
+$('.noti').html('<div class="echec" >Votre mot de passe dois comporter au moins 6 caractères</div>').fadeToggle(3000)
+$('.noti').fadeToggle(5000)   
+
+}
+else{
+
+$('#pre-bootstrap-contai0ner').fadeIn()
+
+
+var data = {type:'connexion',
+            username:username,
+            password:password
+            
+            };
+            
+            $.ajax({ 
+            type: "POST",
+            url: 'admin/login.php',
+            data: data,
+            async: true,
+            dataType: "html",
+            success : function(code_html, statut){
+            
+            
+            
+            //alert(app)
+           // app.Alert( "r45" );
+            $('.noti').html(code_html).fadeToggle(4000)
+           $('.noti').fadeToggle(6000)
+           $('#pre-bootstrap-contai0ner').fadeOut()
+           
+}})
+
+
+
+}
+
+}
+if(bt=="inscription"){
+
+if(username1.indexOf(" ")!=-1){
+var username3=username1.split(" ")
+username1=""
+//alert(username3.length)
+for(var i=0;i<username3.length;i++){
+username1+=username3[i]
+}
+}
+if(username1.length<3){
+$('.notif').html('<div class="echec" >Votre nom d\'utilisateur dois comporter au moins 3 caractères</div>').fadeToggle(3000)
+$('.notif').fadeToggle(5000)   
+}
+else if(email.length<8 || email.indexOf('@')==-1|| email.indexOf('.com')==-1){
+$('.notif').html('<div class="echec" >Verifier votre email et ressayer</div>').fadeToggle(3000)
+$('.notif').fadeToggle(5000)
+            
+
+
+}
+else if(password1.length<6){
+$('.notif').html('<div class="echec" >Verifier votre mot de passe et ressayer</div>').fadeToggle(3000)
+$('.notif').fadeToggle(5000)
+            
+}
+else{
+$('#pre-bootstrap-contai0ner').fadeIn()
+
+
+var code=document.getElementById('cp').value
+if(code.length<0){
+code=1
+}
+
+var data = {type:'inscription',
+            username:username1,
+            email:email,
+            password:password1,
+            code:code
+            
+            };
+            $.ajax({ 
+            type: "POST",
+            url: 'admin/login.php',
+            data: data,
+            async: true,
+            dataType: "html",
+            success : function(code_html, statut){
+            
+            $('.notif').html(code_html).fadeToggle()
+            $('.notif').fadeToggle(6000)
+            $('#pre-bootstrap-contai0ner').fadeOut()
+            
+            if($('#ok.succes').html()){
+            $('#pre-bootstrap-contai0ner').fadeOut()
+            
+            }
+            
+            
+}})
+
+}
+//return false;
+
+}
+return false;
+}
+function noti(){
+
+
+}
+   </script>
+        <!-- JavaScript --> <script src="booftstrap/js/jquery.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
